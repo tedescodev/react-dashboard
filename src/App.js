@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Main } from "./style";
-import { NavigationBar, TopBar } from "./components";
-import "./assets/css/App.css";
+import { NavigationBar, TopBar } from "./infrastructure/components";
+import "./infrastructure/assets/css/App.css";
 import "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js";
 import "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js";
-import routes from "./routes";
+import routes from "./infrastructure/routes";
 
 function App() {
   const [toogle, setToogle] = useState(false);
 
-  const getRoutes = (rts) => {
-    return rts.map((prop, key) => {
+  const getRoutes = (_routes) => {
+    return _routes.map((prop, key) => {
       const Component = prop.component;
       return (
         <Route

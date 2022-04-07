@@ -1,7 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
+import { useLocation, NavLink } from "react-router-dom";
+
 import { Navigation, Ul, Li, Ancla, Icon, Title } from "./style";
 
 function NavigationComponent({ toogle, routes }) {
+  // const location = useLocation();
+
+  // const [isActiveRoute, setIsActiveRoute] = useState(false);
+
+  // const activeRoute = (routeName) => {
+  //   location.pathname === routeName ? setIsActiveRoute(true) : setIsActiveRoute(false);
+  // };
+
   return (
     <Navigation toogle={toogle}>
       <Ul>
@@ -15,10 +25,11 @@ function NavigationComponent({ toogle, routes }) {
         </Li>
         {routes.map((prop, key) => {
           if (prop.invisible) return null;
-          if (!prop.redirect)
+          if (!prop.redirect) {
+            // activeRoute(prop.path)
             return (
               <Li key={key}>
-                <Ancla href={prop.path}>
+                <Ancla href={prop.path} >
                   <Icon>
                     <ion-icon name={prop.icon}></ion-icon>
                   </Icon>
@@ -26,6 +37,7 @@ function NavigationComponent({ toogle, routes }) {
                 </Ancla>
               </Li>
             );
+          }
         })}
       </Ul>
     </Navigation>

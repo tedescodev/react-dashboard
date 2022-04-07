@@ -28,9 +28,9 @@ function DashboardPage() {
     <Fragment>
       <h1 className="text-center">Dashboard</h1>
       <CardBox>
-        {items.map((item) => (
+        {items.map((item, key) => (
           <Fragment>
-            <Card name={item.name} numbers={item.numbers} icon={item.icon} />
+            <Card key={key} name={item.name} numbers={item.numbers} icon={item.icon} />
           </Fragment>
         ))}
       </CardBox>
